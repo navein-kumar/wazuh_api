@@ -1,0 +1,41 @@
+POST /security/user/authenticate HTTP/1.1
+Host: 46.250.237.191:55000
+Authorization: Basic d2F6dWgtd3VpOkNvZGVzZWNTaWVtQWRtaW4yMDIzLiot
+User-Agent: curl/8.4.0
+Accept: */*
+Content-Length: 0
+Connection: close
+
+---
+GET /agents HTTP/1.1
+Host: 46.250.237.191:55000
+Authorization: Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ3YXp1aCIsImF1ZCI6IldhenVoIEFQSSBSRVNUIiwibmJmIjoxNzE4NTI3NzcwLCJleHAiOjE3MTg1Mjg2NzAsInN1YiI6IndhenVoLXd1aSIsInJ1bl9hcyI6ZmFsc2UsInJiYWNfcm9sZXMiOlsxXSwicmJhY19tb2RlIjoid2hpdGUifQ.ABH6iDInmztMjEA_G32byWYrOEY12cXs17WoSrhnagadawazrfdsKb_XjKdOqgMwWEcfZ5FfrOJ9YvmEjjW6c_TzAJc5aQAilvv7FkEWOUgV4RBEA7_hBKeHxw-bkWOe8WrF1kaq8qA718qpLKXMZDQ8d4l2fRzkT4RduQ8hBU_8zf1M
+User-Agent: curl/8.4.0
+Accept: */*
+Content-Length: 0
+Connection: close
+--
+PUT /active-response?agents_list=001 HTTP/1.1
+Host: 46.250.237.191:55000
+Authorization: Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ3YXp1aCIsImF1ZCI6IldhenVoIEFQSSBSRVNUIiwibmJmIjoxNzE4NTMxOTg0LCJleHAiOjE3MTg1MzI4ODQsInN1YiI6IndhenVoLXd1aSIsInJ1bl9hcyI6ZmFsc2UsInJiYWNfcm9sZXMiOlsxXSwicmJhY19tb2RlIjoid2hpdGUifQ.Ab_Ly561HwvituXD_Ch72lM3NOydqssanLpFMghml3PKhMSJ5gQo0tUIe9oHDsLMa3GlSDC7p2wxfLeLCrrdgdxMAFA96YsHn4UKcZpRcgmfB_YSgz9S7AD__GEiJkEAdR07JTmrpaTHTjIBFTFHDG-XYtWLWNw2f4eizDAWxv-MUO43
+User-Agent: curl/8.4.0
+Content-Type: application/json
+Accept: */*
+Content-Length: 123
+Connection: close
+
+{
+
+  "command": "firewall-drop100",
+
+  "alert": {
+
+    "data": {
+
+      "srcip": "192.168.9.5"
+
+    }
+
+  }
+
+}
