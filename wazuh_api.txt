@@ -18,6 +18,17 @@ Accept: */*
 Content-Length: 0
 Connection: close
 
+---
+GET /agents?search=194.163.179.10 HTTP/1.1
+Host: 46.250.237.191:55000
+Authorization: Bearer eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ3YXp1aCIsImF1ZCI6IldhenVoIEFQSSBSRVNUIiwibmJmIjoxNzE4NjQzNzExLCJleHAiOjE3MTg2NDQ2MTEsInN1YiI6IndhenVoLXd1aSIsInJ1bl9hcyI6ZmFsc2UsInJiYWNfcm9sZXMiOlsxXSwicmJhY19tb2RlIjoid2hpdGUifQ.AOTgyd2MN5ImwBLWktrpDX67N00TGMf9U1f27IIQH9PfED2GGTT6cdwHO8yxZmiqRT68-oJKQbSwcCaHi2OZ4u5eAOZ6MKqIPcxjSDRuDM3QJqEqI8hH8c4i2je6t4UN9MIiY-c2XqH5OEHhpamhsf_0uFch92qlwSYwyb3CNGbKTJ81
+User-Agent: curl/8.4.0
+Accept: */*
+Content-Length: 0
+Connection: close
+
+
+
 -----
 ./var/ossec/bin/agent_control -L
 -------
