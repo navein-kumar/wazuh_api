@@ -55,7 +55,40 @@ Content-Length: 407
   }
 }
 
+---
+
+
+POST /wazuh-alerts-*/_search?size=0 HTTP/1.1
+Host: 1.1.1.1:9200
+Authorization: Basic YWRtaW46Q29kZXNlY1NpZW1BZG1pbjIwMjM=
+Content-Type: application/json
+Content-Length: 407
+
+{
+  "query": {
+    "bool": {
+      "must": [],
+      "filter": [
+        {
+          "match_phrase": {
+            "agent.id": "006"
+          }
+        },
+        {
+          "range": {
+            "timestamp": {
+              "gte": "now-30m",
+              "lte": "now/m",
+              "format": "strict_date_optional_time"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
 -------
+
 curl -i -s -k -X $'POST' \
     -H $'Host: 1.1.1.1:9200' -H $'Authorization: Basic YWRtaW46Q29kZXNlY1NpZW1BZG1pbjIwMjM=' -H $'Content-Type: application/json' -H $'Content-Length: 407' \
     --data-binary $'{\x0d\x0a  \"query\": {\x0d\x0a    \"bool\": {\x0d\x0a      \"must\": [],\x0d\x0a      \"filter\": [\x0d\x0a        {\x0d\x0a          \"match_phrase\": {\x0d\x0a            \"agent.id\": \"006\"\x0d\x0a          }\x0d\x0a        },\x0d\x0a        {\x0d\x0a          \"range\": {\x0d\x0a            \"timestamp\": {\x0d\x0a              \"gte\": \"now-30m\",\x0d\x0a              \"lte\": \"now/m\",\x0d\x0a              \"format\": \"strict_date_optional_time\"\x0d\x0a            }\x0d\x0a          }\x0d\x0a        }\x0d\x0a      ]\x0d\x0a    }\x0d\x0a  }\x0d\x0a}\x0d\x0a' \
