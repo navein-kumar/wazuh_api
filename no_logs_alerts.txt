@@ -25,3 +25,33 @@ GET wazuh-alerts-*/_search
 
 ----
 
+POST /wazuh-alerts-*/_search HTTP/1.1
+Host: 46.250.237.191:9200
+Authorization: Basic YWRtaW46Q29kZXNlY1NpZW1BZG1pbjIwMjM=
+Content-Type: application/json
+Content-Length: 407
+
+{
+  "query": {
+    "bool": {
+      "must": [],
+      "filter": [
+        {
+          "match_phrase": {
+            "agent.id": "006"
+          }
+        },
+        {
+          "range": {
+            "timestamp": {
+              "gte": "now-30m",
+              "lte": "now/m",
+              "format": "strict_date_optional_time"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
