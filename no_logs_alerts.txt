@@ -55,3 +55,9 @@ Content-Length: 407
   }
 }
 
+-------
+curl -i -s -k -X $'POST' \
+    -H $'Host: 46.250.237.191:9200' -H $'Authorization: Basic YWRtaW46Q29kZXNlY1NpZW1BZG1pbjIwMjM=' -H $'Content-Type: application/json' -H $'Content-Length: 407' \
+    --data-binary $'{\x0d\x0a  \"query\": {\x0d\x0a    \"bool\": {\x0d\x0a      \"must\": [],\x0d\x0a      \"filter\": [\x0d\x0a        {\x0d\x0a          \"match_phrase\": {\x0d\x0a            \"agent.id\": \"006\"\x0d\x0a          }\x0d\x0a        },\x0d\x0a        {\x0d\x0a          \"range\": {\x0d\x0a            \"timestamp\": {\x0d\x0a              \"gte\": \"now-30m\",\x0d\x0a              \"lte\": \"now/m\",\x0d\x0a              \"format\": \"strict_date_optional_time\"\x0d\x0a            }\x0d\x0a          }\x0d\x0a        }\x0d\x0a      ]\x0d\x0a    }\x0d\x0a  }\x0d\x0a}\x0d\x0a' \
+    $'https://46.250.237.191:9200/wazuh-alerts-*/_search'
+---
