@@ -1,0 +1,27 @@
+GET wazuh-alerts-*/_search
+{
+  "query": {
+    "bool": {
+      "must": [],
+      "filter": [
+        {
+          "match_phrase": {
+            "agent.id": "006"
+          }
+        },
+        {
+          "range": {
+            "timestamp": {
+              "gte": "now-30m",
+              "lte": "now/m",
+              "format": "strict_date_optional_time"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+----
+
